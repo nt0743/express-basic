@@ -6,4 +6,8 @@ app.get("/", (request, response) => {
   console.log("Logging a get request");
 });
 
+app.get("/parameters/:routeParamName", (request, response) => {
+  response.send(`Your route parameter is: ${request.params.routeParamName}`);
+});
+
 app.listen(3000);
