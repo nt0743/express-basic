@@ -10,11 +10,11 @@ const identifyRouteParameter = (request, response) => {
   response.send(`Your route parameter is: ${request.params.routeParamName}`);
 };
 
-function identifyQueryParameter(request, response) {
+const identifyQueryParameter = (request, response) => {
   response.send(
     `The value of query parameter 'queryParamName' is: ${request.query.queryParamName}`
   );
-}
+};
 
 // URL https://4wfhgh-3000.csb.app/routeparameters/1234
 app.get("/routeparameters/:routeParamName", identifyRouteParameter);
@@ -26,9 +26,10 @@ app.get("/routeparameters/:routeParamName", identifyRouteParameter);
 });*/
 
 // URL https://4wfhgh-3000.csb.app/queryparameters?queryParamName=346
-app.get("/queryparameters", (request, response) => {
+app.get("/queryparameters", identifyQueryParameter);
+/*app.get("/queryparameters", (request, response) => {
   identifyQueryParameter(request, response);
-});
+});*/
 /*app.get("/queryparameters", (request, response) => {
   response.send(
     `The value of query parameter 'queryParamName' is: ${request.query.queryParamName}`
