@@ -14,7 +14,9 @@ app.get("/routeparameters/:routeParamName", (request, response) => {
 });*/
 
 // URL of form /queryparameters?queryParamName=value
-app.get("/queryparameters", identifyQueryParameter(request, response));
+app.get("/queryparameters", (request, response) => {
+  identifyQueryParameter(request, response);
+});
 /*app.get("/queryparameters", (request, response) => {
   response.send(
     `The value of query parameter 'queryParamName' is: ${request.query.queryParamName}`
