@@ -6,10 +6,9 @@ app.get("/", (request, response) => {
   console.log("Logging a get request");
 });
 
-app.get(
-  "/routeparameters/:routeParamName",
-  identifyRouteParameter(request, response)
-);
+app.get("/routeparameters/:routeParamName", (request, response) => {
+  identifyRouteParameter(request, response);
+});
 /*app.get("/routeparameters/:routeParamName", (request, response) => {
   response.send(`Your route parameter is: ${request.params.routeParamName}`);
 });*/
