@@ -6,6 +6,16 @@ app.get("/", (request, response) => {
   console.log("Logging a get request");
 });
 
+const identifyRouteParameter = (request, response) => {
+  response.send(`Your route parameter is: ${request.params.routeParamName}`);
+};
+
+function identifyQueryParameter(request, response) {
+  response.send(
+    `The value of query parameter 'queryParamName' is: ${request.query.queryParamName}`
+  );
+}
+
 // URL https://4wfhgh-3000.csb.app/routeparameters/1234
 app.get("/routeparameters/:routeParamName", identifyRouteParameter);
 /*app.get("/routeparameters/:routeParamName", (request, response) => {
@@ -24,15 +34,5 @@ app.get("/queryparameters", (request, response) => {
     `The value of query parameter 'queryParamName' is: ${request.query.queryParamName}`
   );
 });*/
-
-const identifyRouteParameter = (request, response) => {
-  response.send(`Your route parameter is: ${request.params.routeParamName}`);
-};
-
-function identifyQueryParameter(request, response) {
-  response.send(
-    `The value of query parameter 'queryParamName' is: ${request.query.queryParamName}`
-  );
-}
 
 app.listen(3000);
