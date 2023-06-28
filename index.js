@@ -25,14 +25,14 @@ app.get("/queryparameters", (request, response) => {
   );
 });*/
 
-app.listen(3000);
-
-const identifyRouteParameter(request, response) {
+const identifyRouteParameter = (request, response) => {
   response.send(`Your route parameter is: ${request.params.routeParamName}`);
-}
+};
 
-const identifyQueryParameter(request, response) {
+function identifyQueryParameter(request, response) {
   response.send(
     `The value of query parameter 'queryParamName' is: ${request.query.queryParamName}`
   );
 }
+
+app.listen(3000);
